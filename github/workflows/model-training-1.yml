@@ -1,0 +1,18 @@
+name: model-training
+on: [push]
+jobs:
+  train-model:
+    runs-on: windows-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v3
+      - name: set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version-file: '3.10' # Read python version from a file
+      - name: install requirements
+        run: pip install -r requirements.txt
+      - name: train model
+         run: src/train.py
+      - name: upload training model
+         with:
