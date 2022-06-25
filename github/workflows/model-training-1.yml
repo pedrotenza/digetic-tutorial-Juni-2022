@@ -16,5 +16,3 @@ jobs:
          run: src/train.py
       - name: upload training model
          with:
-           name: baummethoden_lr.prickle
-           path: with: data\models\baummethoden_lr.prickle
