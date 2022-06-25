@@ -5,14 +5,15 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: checkout repository
-      - uses: actions/checkout@v3
-      - name: set up python and install requirements
-      - uses: actions/setup-python@v4
+        uses: actions/checkout@v3
+      - name: set up python
+        uses: actions/setup-python@v4
         with:
           python-version-file: '3.10' # Read python version from a file
-      - run: pip install -r requirements.txt
+      - name: install requirements
+        run: pip install -r requirements.txt
       - name: train model
-      - run: src/train.py
+         run: src/train.py
       - name: upload training model
          with:
            name: baummethoden_lr.prickle
